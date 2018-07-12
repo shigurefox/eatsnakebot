@@ -462,7 +462,10 @@ class Eatsnakebot:
         """
         chat_id = update.message.chat_id
         restricted = not self.do_operational_auth(chat_id)
-        mesg = update.message.text
+        try:
+            mesg = update.message.text
+        except:
+            mesg = update.edited_message.text
         mesg_id = update.message.message_id
         mesg_low = mesg.lower().replace('@NTUEatsnakebot', '')
 
@@ -470,8 +473,9 @@ class Eatsnakebot:
             cmd_toks = [x.strip() for x in mesg.split(' ')]
             while '' in cmd_toks:
                 cmd_toks.remove('')
-
-            if mesg == '/crash':
+            if mesg == '/表單網址':
+                self.send_generic_mesg(chat_id, self.config['locdb_sheet_url'])
+            elif mesg == '/crash':
                 raise Exception('Crash!')
         else:
             outmesg = "No commands yet are supported for group chats."
