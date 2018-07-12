@@ -26,11 +26,9 @@ import random
 import requests
 import sqlite3
 import string
-import sys
 import time
 import telegram
 import urllib
-import urllib2
 from collections import OrderedDict
 from locdbhelper import locDBHelper
 
