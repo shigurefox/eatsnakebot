@@ -1,0 +1,9 @@
+.DS_Store
+*.log
+config.json
+loc_db*.sqlite
+strings.json
+todolist.txt
+versions_log.txt
+build/
+dist/
