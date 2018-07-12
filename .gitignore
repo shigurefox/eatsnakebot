@@ -1,6 +1,11 @@
+# miscellaneous
 .DS_Store
-*.log
 todolist.txt
+
+# logs
+*.log
 versions_log.txt
+
+# distribution
 build/
 dist/
