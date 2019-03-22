@@ -1,0 +1,10 @@
+{
+  "strings_json" : "strings_example.json",
+  "bot_token" : "XXXXXXX",
+  "loc_db" : "loc_db_example.sqlite",
+  "resp_db" :  "resp_db_example.sqlite",
+  "adm_ids" : [12345678],
+  "operational_chats" : [-98765432, -11111111],
+  "restricted_chats" : [-11111111],
+  "locdb_sheet_url" : "https://docs.google.com/spreadsheets/xxxyyy"
+}

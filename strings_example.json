@@ -1,0 +1,47 @@
+{
+  "q_status_kw": "ARE YOU THERE?",
+  "qr_status_t": "YES I AM HERE",
+  "qr_status_f": "NO I AM LEAVED",
+
+  "s_status_t_kw": "COME BACK",
+  "sr_status_t_ok": "I AM BACK",
+  "s_status_f_kw": "GO AWAY",
+  "sr_status_f_ok": "I AM NOWHERE",
+  "sr_status_f_ng": "WHO ARE YOU?",
+
+  "a_reload_kwlist_kw": "RELOAD KEYWORD",
+  "ar_reload_kwlist_ok": "KEYWORD RELOADED",
+  "ar_reload_kwlist_ng": "WHO ARE YOU?",
+
+  "s_imgupload_t_kw": "BEGIN PICS",
+  "sr_imgupload_t_ok": "PICS BEGAN",
+  "sr_imgupload_t_ng": "WHO ARE YOU?",
+
+  "s_imgupload_f_kw": "END PICS",
+  "sr_imgupload_f_ok": "PICS ENDED",
+  "sr_imgupload_f_ng": "WHO ARE YOU?",
+
+  "r_motd_updated": "{0} MOTD UPDATED",
+  "r_motd_no": "NO MOTD YET",
+  "r_motd_old": "NO MOTD FOR TODAY YET\n{0} MOTD REVIEW:\n{1}",
+  "r_motd_ok": "{0} MOTD：\n{1}",
+
+  "r_wash_snake_strs": [
+    "WASH SNAKE", "WASH 3 SMALL", "CPC"
+  ],
+
+  "r_invasive_wash_snake_strs": [
+    "FUCK YOU WASH SNAKE!"
+  ],
+
+  "q_motd_kws": [
+    "MOTD?"
+  ],
+
+  "v_photo_bulkupload": "!!!DO_PHOTOS_UPLOAD_NOW",
+  "vr_photo_bulkupload_no_file": "No photos in /images/...",
+
+  "r_roll_cmd_help": "/roll [ max (1000) | min-max (20-30) | (count)d(type)[+-(modifier)] (2d6, 1d20+12) | (count)d(type)s(success) (2d6s4) ]",
+
+  "x_fortune_salt_str": "^_^ADD_SOME_SALT##$$%Y__??__%m__!!__%d**&&MORE__SALT^_^"
+}
