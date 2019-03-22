@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 ## coding=UTF-8
 #
-# Eatsnakebot: a simple Telegram bot variation of AFX_bot in Python
-# Copyright (C) 2017 Shigurefox. <shigurefox@gmail.com>
+# Eatsnakebot: a simple Telegram bot in Python based on AFX_Bot
+# Modified 2017 Shigurefox. <shigurefox@gmail.com>
+# Copyright (C) 2016 Anfauglir Kz. <anfauglirkz@gmail.com>
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -16,6 +17,8 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+__author__ = 'Anfauglir'
 
 import argparse
 import http
@@ -339,7 +342,7 @@ class Eatsnakebot:
         self.bot.sendLocation(chat_id = chat_id, latitude = lat, longitude = lng)
 
         # Hardcoded extras...
-        if user_id == 77414661:
+        if (user_id == 77414661 && random.randint(0, 99) < 10):
             self.send_generic_mesg(chat_id, "看看你的肚子，還吃？", mesg_id)
 
     def do_adm_auth(self,
@@ -392,7 +395,10 @@ class Eatsnakebot:
                 Update object to handle.
         """
         chat_id = update.message.chat_id
-        mesg = update.message.text.strip()
+        try:
+            mesg = update.message.text.strip()
+        except:
+            mesg = update.edited_message.text.strip()
         mesg_id = update.message.message_id
 
         cmd_toks = [x.strip() for x in mesg.split(' ')]
@@ -439,11 +445,11 @@ class Eatsnakebot:
                     if cmd_toks[2]:
                         self.send_generic_mesg(chat_id, "Usage: " + self.strs['i_usg_adm_{}'.format(cmd_toks[2])], mesg_id)
                 except:
-                    outmesg = self.strs['i_usg_adm_help'] + '\nSupported commands: ' + self.strs['i_adm_cmdlist']
+                    outmesg = self.strs['i_usg_adm_help'] + '\nAvailable commands: ' + self.strs['i_adm_cmdlist']
                     self.send_generic_mesg(chat_id, outmesg, mesg_id)
             else:
                 # Unknown command
-                outmesg = self.strs['r_adm_unknown'] + '\nSupported commands: ' + self.strs['i_adm_cmdlist']
+                outmesg = self.strs['r_adm_unknown'] + '\nAvailable commands: ' + self.strs['i_adm_cmdlist']
                 self.send_generic_mesg(chat_id, outmesg, mesg_id)
         except:
             self.logger.debug("Encountered an error while handling adm command: {}.".format(cmd_entity))
@@ -470,14 +476,27 @@ class Eatsnakebot:
         mesg_low = mesg.lower().replace('@NTUEatsnakebot', '')
 
         if chat_id > 0:
+            # Private message commands
             cmd_toks = [x.strip() for x in mesg.split(' ')]
             while '' in cmd_toks:
                 cmd_toks.remove('')
-            if mesg == '/表單網址':
-                self.send_generic_mesg(chat_id, self.config['locdb_sheet_url'])
+            if mesg == '/sheeturl':
+                self.send_generic_mesg(chat_id, self.config['locdb_sheet_url'], mesg_id)
             elif mesg == '/crash':
                 raise Exception('Crash!')
+            elif mesg.beginswith('/help ') or mesg_low == '/help':
+                # Show help messages
+                if cmd_toks[1] in self.strs['i_cmd_cmdlist']:
+                    self.send_generic_mesg(chat_id, self.strs['i_cmd_help_{}'.format(cmd_toks[1])], mesg_id)
+                else:
+                    outmesg = 'Available commands: {}.\nsend \"/help [command name]\" to show specific command usage.'.format(self.strs['i_cmd_cmdlist'])
+                self.send_generic_mesg(chat_id, outmesg, mesg_id)
+            else:
+                # Show usage messages
+                outmesg = self.strs['r_cmd_unknown'] + '\nAvailable commands: ' + self.strs['i_cmd_cmdlist']
+                self.send_generic_mesg(chat_id, outmesg, mesg_id)
         else:
+            # Group chat commands
             outmesg = "No commands yet are supported for group chats."
             self.send_generic_mesg(chat_id, outmesg, mesg_id)
             return False

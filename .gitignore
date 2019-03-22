@@ -2,6 +2,11 @@
 .DS_Store
 todolist.txt
 
+# config files
+config.json
+loc_db.sqlite
+resp_db.sqlite
+
 # logs
 *.log
 versions_log.txt

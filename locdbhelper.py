@@ -49,7 +49,8 @@ class locDBHelper:
                  tag = None,
                  oths = None):
         try:
-            cmmd = "INSERT INTO restaurants (name, pricerange, mincharge, address, optime, latitude, longitude, tag, oths) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)"
+            cmmd = "INSERT INTO restaurants (name, pricerange, mincharge, address, optime, latitude, longitude, tag, oths) \
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)"
             args = (rname, prange, mch, addr, opt, lat, lng, tag, oths)
             self.cur.execute(cmmd, args)
             self.conn.commit()
