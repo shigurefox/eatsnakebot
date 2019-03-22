@@ -12,7 +12,7 @@ Note that most of the functionalities as provided in AFX_Bot do not remain.
 License
 -------
 
-Modified 2017 Shigurefox.
+Modified 2017 Shigurefox.  
 Copyright (C) 2016 Anfauglir Kz.
 
 This program is free software: you can redistribute it and/or modify
