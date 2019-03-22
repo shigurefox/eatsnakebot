@@ -1,9 +1,0 @@
-{
-  "strings_json" : "strings.json",
-  "bot_token" : "413075871:AAEoKhfZ8YlYk-3CnIMExwCkFoA9fLykm2s",
-  "loc_db" : "loc_db.sqlite",
-  "adm_ids" : [132592798],
-  "operational_chats" : [-240014813, -1001119804468, -1001259526104],
-  "restricted_chats" : [],
-  "locdb_sheet_url" : "https://docs.google.com/spreadsheets/d/1jUr_17WgVL-itvm6u0srmyszpexXFXYQkowurkwjYjY/edit#gid=0"
-}
