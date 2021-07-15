@@ -4,6 +4,7 @@ todolist.txt
 
 # config files
 config.json
+strings.json
 loc_db.sqlite
 resp_db.sqlite
 
